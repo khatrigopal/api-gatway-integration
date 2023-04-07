@@ -49,7 +49,7 @@ resource "aws_api_gateway_method" "method" {
  resource "aws_api_gateway_deployment" "deployment" {
    depends_on = [aws_api_gateway_integration.integration]
    
-   for_each = var.deployments
+   for_each = var.deployment
    
    rest_api_id = aws_api_gateway_rest_api.api_gateway.id
    stage_name  = each.value.stage_name
