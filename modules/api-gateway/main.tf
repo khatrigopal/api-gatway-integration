@@ -46,25 +46,31 @@ resource "aws_api_gateway_method" "method" {
 }
 
 
-# resource "aws_api_gateway_deployment" "deployment1" {
-#   rest_api_id = aws_api_gateway_rest_api.api_gateway.id
+ resource "aws_api_gateway_deployment" "deployment" {
+   depends_on = [aws_api_gateway_integration.integration]
+   
+   for_each = var.deployments
+   
+   rest_api_id = aws_api_gateway_rest_api.api_gateway.id
+   stage_name  = each.value.stage_name
 
-#   triggers = {
-#     redeployment = sha1(jsonencode(aws_api_gateway_rest_api.api_gateway.body))
-#   }
+   #triggers = {
+    # redeployment = sha1(jsonencode(aws_api_gateway_rest_api.api_gateway.body))
+   #}
 
-#   depends_on = [aws_api_gateway_integration.integration]
-#   lifecycle {
-#     create_before_destroy = true
-#   }
-# }
+   #depends_on = [aws_api_gateway_integration.integration]
+   lifecycle {
+     create_before_destroy = true
+   }
+ }
 
-# resource "aws_api_gateway_stage" "deploy" {
-#   deployment_id = aws_api_gateway_deployment.deployment1.id
-# #   depends_on    = [aws_api_gateway_integration.integration]
-#   rest_api_id   = aws_api_gateway_rest_api.api_gateway.id
-#   stage_name    = var.stage_name
-#   description   = "Deployment for ${var.api_name}"
+ #resource "aws_api_gateway_stage" "deploy" {
+  # deployment_id = aws_api_gateway_deployment.deployment1.id
+   # depends_on    = [aws_api_gateway_integration.integration]
+   #rest_api_id   = aws_api_gateway_rest_api.api_gateway.id
+   #stage_name    = var.stage_name
+   
+#description   = "Deployment for ${var.api_name}"
 # }
 
 
