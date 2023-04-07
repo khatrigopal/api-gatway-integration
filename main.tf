@@ -1,5 +1,5 @@
 module "example_api_gateway" {
-  source = "./modules/api_gateway"
+  source = "./modules/api-gateway"
 
   api_name        = "example-api"
   description = "Example API Gateway REST API"
