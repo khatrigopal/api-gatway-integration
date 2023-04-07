@@ -43,16 +43,16 @@ module "example_api_gateway" {
      }
    } 
 
-  # lambda_permission = {
-  #   "lambda_permission1" = {
-  #     lambda_function_name = "test"
-  #     resource_name = "resource1"
-  #     http_method   = "POST"
-  #   }
-  #   "lambda_permission2" = {
-  #     resource_name = "resource2"
-  #     http_method   = "POST"
-  #     lambda_function_name = "batch-test"
-  #   }
-  # } 
+  lambda_permission = {
+     "lambda_permission1" = {
+       lambda_function_name = "test1"
+       resource_name = "resource1"
+       http_method   = "POST"
+     }
+     "lambda_permission2" = {
+       resource_name = "resource2"
+       http_method   = "POST"
+       lambda_function_name = "test2"
+     }
+   } 
 }
