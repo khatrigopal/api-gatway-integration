@@ -1,7 +1,7 @@
 module "example_api_gateway" {
   source = "./modules/api-gateway"
 
-  api_name        = "example-api"
+  api_name        = "test-integration-api"
   description = "Example API Gateway REST API"
 
   resources = {
