@@ -35,15 +35,15 @@ resource "aws_api_gateway_method" "method" {
    uri                     = "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/${each.value.lambda_function_arn}/invocations"
  }
 
-# resource "aws_lambda_permission" "allow_api" {
-#   for_each = var.lambda_permission 
+ resource "aws_lambda_permission" "allow_api" {
+   for_each = var.lambda_permission 
 
-#   statement_id  = "AllowAPIgatewayInvokation"
-#   action        = "lambda:InvokeFunction"
-#   function_name = each.value.lambda_function_name
-#   principal     = "apigateway.amazonaws.com"
-#   source_arn    = "arn:aws:execute-api:${var.region}:${var.aws_account}:${aws_api_gateway_rest_api.api_gateway.id}/*/${each.value.http_method}/${each.value.resource_name}"
-# }
+   statement_id  = "AllowAPIgatewayInvokation"
+   action        = "lambda:InvokeFunction"
+   function_name =  each.value.lambda_function_name
+   principal     = "apigateway.amazonaws.com"
+   source_arn    = "arn:aws:execute-api:us-east-1:558940753150:${aws_api_gateway_rest_api.api_gateway.id}/*/${each.value.http_method}/${each.value.resource_name}"
+}
 
 
 # resource "aws_api_gateway_deployment" "deployment1" {
