@@ -33,7 +33,7 @@ variable "methods" {
      integration_http_method = string
      lambda_function_arn = string
    }))
-  
+ }  
   variable "deployment" {
    type        = map(object({
      stage_name = string
