@@ -38,6 +38,7 @@ module "example_api_gateway" {
      "integration2" = {
        resource_name = "resource2"
        http_method   = "POST"
+       integration_http_method = "POST"
        lambda_function_arn = "arn:aws:lambda:us-east-1:558940753150:function:test2"
      }
    } 
