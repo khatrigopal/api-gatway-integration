@@ -28,18 +28,18 @@ module "example_api_gateway" {
     }
   }
 
-  # integration = {
-  #   "integration1" = {
-  #     resource_name = "resource1"
-  #     http_method   = "POST"
-  #     lambda_function_arn = "arn:aws:lambda:us-east-1:223522054519:function:test"
-  #   }
-  #   "integration2" = {
-  #     resource_name = "resource2"
-  #     http_method   = "POST"
-  #     lambda_function_arn = "arn:aws:lambda:us-east-1:223522054519:function:batch-test"
-  #   }
-  # } 
+  integration = {
+     "integration1" = {
+       resource_name = "resource1"
+       http_method   = "POST"
+       lambda_function_arn = "arn:aws:lambda:us-east-1:558940753150:function:test1"
+     }
+     "integration2" = {
+       resource_name = "resource2"
+       http_method   = "POST"
+       lambda_function_arn = "arn:aws:lambda:us-east-1:558940753150:function:test2"
+     }
+   } 
 
   # lambda_permission = {
   #   "lambda_permission1" = {
