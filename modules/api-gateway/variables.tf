@@ -26,20 +26,20 @@ variable "methods" {
   description = "The HTTP methods to create for the API Gateway resources"
 }
 
-variable "integration" {
-  type        = map(object({
-    resource_name = string
-    http_method   = string
-    lambda_function_arn = string
-  }))
-  description = "The HTTP methods to create for the API Gateway resources"
-}
+# variable "integration" {
+#   type        = map(object({
+#     resource_name = string
+#     http_method   = string
+#     lambda_function_arn = string
+#   }))
+#   description = "The HTTP methods to create for the API Gateway resources"
+# }
 
-variable "lambda_permission" {
-  type        = map(object({
-    lambda_function_name = string
-    http_method   = string
-    resource_name = string
-  }))
-  description = "The HTTP methods to create for the API Gateway resources"
-}
+# variable "lambda_permission" {
+#   type        = map(object({
+#     lambda_function_name = string
+#     http_method   = string
+#     resource_name = string
+#   }))
+#   description = "The HTTP methods to create for the API Gateway resources"
+# }
