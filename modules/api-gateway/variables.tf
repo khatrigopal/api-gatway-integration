@@ -33,7 +33,13 @@ variable "methods" {
      integration_http_method = string
      lambda_function_arn = string
    }))
-   description = "The HTTP methods to create for the API Gateway resources"
+  
+  variable "deployment" {
+   type        = map(object({
+     stage_name = string
+     
+   }))
+   description = "The deployment and stage to create for the API Gateway resources"
  }
 
 variable "lambda_permission" {
