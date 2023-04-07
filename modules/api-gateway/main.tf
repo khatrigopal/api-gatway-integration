@@ -28,8 +28,9 @@ resource "aws_api_gateway_method" "method" {
 
    rest_api_id             = aws_api_gateway_rest_api.api_gateway.id
    resource_id             = aws_api_gateway_resource.resource[each.value.resource_name].id
-   http_method             = aws_api_gateway_method.method[each.value.http_method]
-   integration_http_method = each.value.http_method
+   #http_method             = aws_api_gateway_method.method[each.value.http_method]
+    http_method    = each.value.http_method
+   integration_http_method = each.value.integration_http_method
    type                    = "AWS_PROXY"
    uri                     = "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/${each.value.lambda_function_arn}/invocations"
  }
