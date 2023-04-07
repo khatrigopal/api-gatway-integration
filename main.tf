@@ -55,4 +55,13 @@ module "example_api_gateway" {
        lambda_function_name = "test2"
      }
    } 
+  
+  deployments = {
+    "test" = {
+      stage_name = "dev"
+    }
+    "test2" = {
+      stage_name = "prod"
+    }
+  }
 }
