@@ -56,7 +56,7 @@ module "example_api_gateway" {
      }
    } 
   
-  deployments = {
+  deployment = {
     "test" = {
       stage_name = "dev"
     }
