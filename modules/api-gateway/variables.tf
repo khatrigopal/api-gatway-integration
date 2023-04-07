@@ -30,6 +30,7 @@ variable "methods" {
    type        = map(object({
      resource_name = string
      http_method   = string
+     integration_http_method = string
      lambda_function_arn = string
    }))
    description = "The HTTP methods to create for the API Gateway resources"
